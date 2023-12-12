@@ -10,35 +10,40 @@ using namespace std;
 class twoStacks
 {
     public:
-        int size;
-        int top1, top2;
-        int *arr;
-    twoStacks(int n=100)
+    int *arr;
+    int size;
+    int top1;
+    int top2;
+    
+    twoStacks(int s=100)
     {
-        this->size=n;
+        this->size=s;
+        arr=new int[s];
         top1=-1;
-        top2=n;
-        arr=new int[n];
-        }
+        top2=s;
+    }
  
     //Function to push an integer into the stack1.
     void push1(int x)
     {
-        if(top2-top1>1){
+        if(top2-top1 > 1){ //if atleast a single space is present
             top1++;
             arr[top1]=x;
-        }
+        } 
         else{
-            cout<<"Stack overflow"<<endl;
+            cout<<"Stack overflow";
         }
     }
     
     //Function to push an integer into the stack2.
     void push2(int x)
     {
-       if(top2-top1>1){
+       if(top2-top1 > 1){
            top2--;
            arr[top2]=x;
+       }
+       else{
+           cout<<"Stack overflow";
        }
     }
     
@@ -46,10 +51,11 @@ class twoStacks
     int pop1()
     {
         if(top1>=0){
-            int ar1=arr[top1];
+            int ans=arr[top1];
             top1--;
-            return ar1;
+            return ans;
         }
+        
         else{
             return -1;
         }
@@ -59,9 +65,9 @@ class twoStacks
     int pop2()
     {
        if(top2<size){
-           int ar2=arr[top2];
+           int ans=arr[top2];
            top2++;
-           return ar2;
+           return ans;
        }
        else{
            return -1;
