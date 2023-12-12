@@ -26,19 +26,19 @@ int main()
 
 
 //return the address of the string
-char* reverse(char *S, int len)
+char* reverse(char *str, int len)
 {
     //code here
-    stack<char>st;
+    stack<char>s;
     for(int i=0; i<len; i++){
-        st.push(S[i]);
+        s.push(str[i]);
     }
     char* ans=new char[len];
     int i=0;
-    while(!st.empty()){
-        ans[i]=st.top();
+    while(!s.empty()){
+        ans[i]=s.top();
         i++;
-        st.pop();
+        s.pop();
     }
     return ans;
 }
